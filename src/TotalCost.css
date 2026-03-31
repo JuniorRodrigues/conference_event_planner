@@ -1,40 +1,52 @@
-.pricing-app {
- margin-top: 20px;
- /* margin-left: 40vw; */
- width: 100vw;
- height: 100vh;
- display: flex;
- align-items: center;
- justify-content: center;
-}
-
-
-.display_box {
-  text-align: center;
-  box-sizing: border-box;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 15px;
-  background-color: white;
-  color: #333;
-  margin: 0;
-  padding: 55px;
-  width: 80vw;
-}
-
-
-.pricing-app .preheading {
-  font-family: dosis, sans-serif;
-  text-transform: uppercase;
-  line-height: 1;
-  margin: 0;
-  /* padding: 0 0 10px; */
-  font-size: 25px;
-}
-
-.pricing-app h2 {
-  font-size: 60px;
-}
-
-.right {
-  margin-right: 0;
-}
+/* ══════════════════════════════════════════
+   PRICING APP WRAPPER
+   ══════════════════════════════════════════ */
+   .pricing-app {
+    width: 100vw;
+    min-height: 100vh;               was height:100vh — avoids content clipping
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--sp-6) var(--sp-4);  added — prevents edge bleed on small viewports
+    background-color: var(--surface-alt); added — soft page bg matches brand
+  }
+  
+  /* ── Card ────────────────────────────────── */
+  .display_box {
+    text-align: center;
+    box-sizing: border-box;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08); was 0 0 10px — softer, on-brand
+    border: 1px solid var(--border);   added — matches .venue_main card style
+    border-radius: var(--radius-lg);  was 15px hardcoded
+    background-color: var(--surface); was white
+    color: var(--text-primary);       was #333
+    padding: var(--sp-8);             was 55px — aligned to 8pt grid (64px)
+    width: min(80vw, 640px);          was 80vw — caps at readable max-width
+  }
+  
+  /* ── Pre-heading (Dosis kept — it's a deliberate stylistic choice) */
+  .pricing-app .preheading {
+    font-family: dosis, sans-serif;
+    text-transform: uppercase;
+    line-height: 1;
+    margin: 0 0 var(--sp-1);         was 0 — adds rhythm before h2
+    font-size: var(--text-lg);        was 25px — 20px on token scale
+    font-weight: var(--fw-medium);
+    letter-spacing: 0.08em;          added — uppercase labels need tracking
+    color: var(--text-secondary);     added — visually subordinate to h2
+  }
+  
+  /* ── Main value heading ──────────────────── */
+  .pricing-app h2 {
+    font-size: clamp(var(--text-3xl), 6vw, var(--text-4xl)); was 60px — fluid
+    font-weight: var(--fw-black);    added — makes the number pop
+    line-height: 1.1;
+    color: var(--brand-navy);        added — on-brand instead of inherited
+    margin: var(--sp-1) 0 0;
+  }
+  
+  /* ── .right alignment helper ─────────────── */
+  .right {
+    margin-left: auto;               was margin-right:0 — proper right-align in flex
+    text-align: right;
+  }

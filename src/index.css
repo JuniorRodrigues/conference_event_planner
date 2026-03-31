@@ -1,42 +1,62 @@
+/* ══════════════════════════════════════════
+   ROOT — global defaults
+   ══════════════════════════════════════════ */
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; unchanged — applied before tokens load
   line-height: 1.5;
-  font-weight: 400;
-
-  /* color: rgba(255, 255, 255, 0.87); */
-  /* background-color: #242424; */
+  font-weight: var(--fw-regular); was 400
+  color: var(--text-primary);   was commented out
+  background-color: var(--surface); was commented out
 }
 
+/* Links — brand accent instead of generic purple */
 a {
-  font-weight: 500;
-  color: #646cff;
+  font-weight: var(--fw-medium); was 500
+  color: var(--accent-dark);   was #646cff
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: var(--accent);         was #535bf2
 }
 
+/* Headings — fluid, consistent with budget_heading scale */
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: clamp(var(--text-2xl), 3.5vw, var(--text-4xl)); was 3.2em hardcoded
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+  letter-spacing: -0.01em;   added — matches brand headings
 }
 
+/* Buttons — harmonized with .details_button / .get-started-btn */
 button {
-  border-radius: 8px;
+  border-radius: var(--radius-md); was 8px hardcoded
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
+  padding: 0.5rem 1.25rem;       was 0.6em 1.2em — on token grid
+  font-size: var(--text-base);    was 1em
+  font-weight: var(--fw-medium);  was 500
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--brand-navy); was #1a1a1a
+  color: var(--text-inverse);     was #fff — same result, stays consistent
   cursor: pointer;
-  transition: border-color 0.25s;
-  color: #fff;
+  transition: background-color var(--duration) var(--ease),
+    transform var(--duration) var(--ease); added transform — matches brand buttons
 }
 button:hover {
-  border-color: #646cff;
+  background-color: var(--brand-navy-dark); was border-color: #646cff
+  transform: translateY(-1px);  added — matches .details_button
 }
-button:focus,
+button:active {
+  transform: translateY(0);      added — snaps back on click
+}
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 2px solid var(--accent);   was 4px auto -webkit-focus-ring-color
+  outline-offset: 2px;
+}
+
+/* Reduced motion — mirrors improved.css */
+@media (prefers-reduced-motion: reduce) {
+  button {
+    transition: background-color var(--duration) var(--ease);
+    transform: none;
+  }
 }
