@@ -2,54 +2,54 @@
    ROOT — global defaults
    ══════════════════════════════════════════ */
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; unchanged — applied before tokens load
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  font-weight: var(--fw-regular); was 400
-  color: var(--text-primary);   was commented out
-  background-color: var(--surface); was commented out
+  font-weight: var(--fw-regular);
+  color: var(--text-primary);
+  background-color: var(--surface);
 }
 
 /* Links — brand accent instead of generic purple */
 a {
-  font-weight: var(--fw-medium); was 500
-  color: var(--accent-dark);   was #646cff
+  font-weight: var(--fw-medium);
+  color: var(--accent-dark);
   text-decoration: inherit;
 }
 a:hover {
-  color: var(--accent);         was #535bf2
+  color: var(--accent);
 }
 
 /* Headings — fluid, consistent with budget_heading scale */
 h1 {
-  font-size: clamp(var(--text-2xl), 3.5vw, var(--text-4xl)); was 3.2em hardcoded
+  font-size: clamp(var(--text-2xl), 3.5vw, var(--text-4xl));
   font-weight: var(--fw-bold);
   line-height: 1.2;
-  letter-spacing: -0.01em;   added — matches brand headings
+  letter-spacing: -0.01em;
 }
 
 /* Buttons — harmonized with .details_button / .get-started-btn */
 button {
-  border-radius: var(--radius-md); was 8px hardcoded
+  border-radius: var(--radius-md);
   border: 1px solid transparent;
-  padding: 0.5rem 1.25rem;       was 0.6em 1.2em — on token grid
-  font-size: var(--text-base);    was 1em
-  font-weight: var(--fw-medium);  was 500
+  padding: 0.5rem 1.25rem;
+  font-size: var(--text-base);
+  font-weight: var(--fw-medium);
   font-family: inherit;
-  background-color: var(--brand-navy); was #1a1a1a
-  color: var(--text-inverse);     was #fff — same result, stays consistent
+  background-color: var(--brand-navy);
+  color: var(--text-inverse);
   cursor: pointer;
   transition: background-color var(--duration) var(--ease),
-    transform var(--duration) var(--ease); added transform — matches brand buttons
+    transform var(--duration) var(--ease);
 }
 button:hover {
-  background-color: var(--brand-navy-dark); was border-color: #646cff
-  transform: translateY(-1px);  added — matches .details_button
+  background-color: var(--brand-navy-dark);
+  transform: translateY(-1px);
 }
 button:active {
-  transform: translateY(0);      added — snaps back on click
+  transform: translateY(0);
 }
 button:focus-visible {
-  outline: 2px solid var(--accent);   was 4px auto -webkit-focus-ring-color
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 
