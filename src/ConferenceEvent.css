@@ -464,7 +464,7 @@ navbar,
   margin-top: var(--sp-3);
   overflow-y: auto;
   max-height: 300px;
-  padding-left: var(--sp-3);
+  /* padding-left: var(--sp-3); */
   scrollbar-width: thin;
   scrollbar-color: var(--border) transparent;
 }

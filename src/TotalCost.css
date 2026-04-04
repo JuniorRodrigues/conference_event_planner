@@ -20,8 +20,8 @@
     border-radius: var(--radius-lg);
     background-color: var(--surface);
     color: var(--text-primary);
-    padding: var(--sp-8);
-    width: min(80vw, 640px);
+    padding: var(--sp-2);
+    width: min(80vw, 960px);
   }
   
   /* ── Pre-heading (Dosis kept — it's a deliberate stylistic choice) */
